@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CatFacts.Configuration;
+using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 
 namespace CatFacts
 {
@@ -9,11 +11,16 @@ namespace CatFacts
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+            builder.RegisterServices();
+            builder.RegisterViewModels();
+            builder.RegisterViews();
 
 #if DEBUG
     		builder.Logging.AddDebug();

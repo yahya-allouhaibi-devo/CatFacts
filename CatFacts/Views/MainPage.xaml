@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+     x:Class="CatFacts.Views.MainPage"
+     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:views="clr-namespace:CatFacts.Views"
+     xmlns:viewmodels="clr-namespace:CatFacts.ViewModels"
+     x:DataType="viewmodels:CatFactViewModel">
+
+    <Grid RowDefinitions="*,Auto" RowSpacing="0">
+            <VerticalStackLayout
+                Grid.Row="0"
+                Padding="30,0"
+                Spacing="25"
+                HorizontalOptions="Center">
+                <Image
+                    Source="cat.png"
+                    HeightRequest="185"
+                    Aspect="AspectFit"/>
+
+                <Label
+                    Text="{Binding CatFactText}"
+                    Style="{StaticResource SubHeadline}"
+                    SemanticProperties.HeadingLevel="Level6"/>
+            </VerticalStackLayout>
+        
+        <VerticalStackLayout
+            Grid.Row="1" 
+            HorizontalOptions="Center"
+            Padding="30,0"
+            Spacing="5">
+            <Label
+                Text="Press the paw for a new fact"
+                HorizontalOptions="Center"/>
+            <ImageButton
+                Source="cat_paw.png"
+                x:Name="FetchCatFactBtn"
+                Command="{Binding GetCatFactCommand}"
+                HeightRequest="200"
+                WidthRequest="200"
+                Aspect="AspectFit"
+                BackgroundColor="Transparent"
+                HorizontalOptions="Center"
+                SemanticProperties.Hint="Tap to fetch a new cat fact"/>   
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
