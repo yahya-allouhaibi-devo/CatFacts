@@ -5,7 +5,7 @@ using SQLite;
 
 namespace CatFacts.Services;
 
-public class CatDataBaseService
+public class CatDataBaseService : ICatDataBaseService
 {
     SQLiteAsyncConnection? _database;
 
@@ -16,6 +16,7 @@ public class CatDataBaseService
 
         try
         {
+            Debug.WriteLine($"[InitializeAsync] Database Path: {Constants.DataBasePath}");
             _database = new SQLiteAsyncConnection(Constants.DataBasePath, Constants.Flags);
             await _database.CreateTableAsync<CatFact>();
             Debug.WriteLine("Database initialized successfully.");

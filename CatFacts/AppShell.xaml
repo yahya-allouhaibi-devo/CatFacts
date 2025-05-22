@@ -7,9 +7,19 @@
     xmlns:views="clr-namespace:CatFacts.Views"
     Title="CatFacts">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate views:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <Tab Title="Home">
+            <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate views:MainPage}"
+            Route="MainPage" />
+        </Tab>
+        <Tab Title="History">
+            <ShellContent
+                Title="History"
+                ContentTemplate="{DataTemplate views:CatFactsHistory}"
+                Route="CatFactsHistory"/>
+        </Tab>
+    </TabBar>
 
 </Shell>

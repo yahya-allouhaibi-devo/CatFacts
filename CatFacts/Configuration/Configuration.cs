@@ -8,7 +8,7 @@ public static class Configuration
 {
     public static MauiAppBuilder RegisterServices(this MauiAppBuilder mauiAppBuilder)
     {
-        mauiAppBuilder.Services.AddSingleton<CatDataBaseService>();
+        mauiAppBuilder.Services.AddSingleton<ICatDataBaseService,CatDataBaseService>();
         mauiAppBuilder.Services.AddSingleton<ICatFactService, CatFactService>();
         mauiAppBuilder.Services.AddSingleton<HttpClient>(sp =>
         {
@@ -22,6 +22,7 @@ public static class Configuration
     public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
     {
         mauiAppBuilder.Services.AddTransient<CatFactViewModel>();
+        mauiAppBuilder.Services.AddTransient<CatFactsHistoryViewModel>();
 
         return mauiAppBuilder;
     }
@@ -29,6 +30,7 @@ public static class Configuration
     public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)
     {
         mauiAppBuilder.Services.AddTransient<MainPage>();
+        mauiAppBuilder.Services.AddTransient<CatFactsHistory>();
 
         return mauiAppBuilder;
     }

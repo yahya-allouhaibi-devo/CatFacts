@@ -8,22 +8,27 @@
      x:DataType="viewmodels:CatFactViewModel">
 
     <Grid RowDefinitions="*,Auto" RowSpacing="0">
-            <VerticalStackLayout
-                Grid.Row="0"
-                Padding="30,0"
-                Spacing="25"
-                HorizontalOptions="Center">
-                <Image
-                    Source="cat.png"
-                    HeightRequest="185"
-                    Aspect="AspectFit"/>
+         <VerticalStackLayout
+             Grid.Row="0"
+             Padding="30,0"
+             Spacing="25"
+             HorizontalOptions="Center">
+             <Image
+                 Source="cat.png"
+                 HeightRequest="185"
+                 Aspect="AspectFit"/>
 
-                <Label
-                    Text="{Binding CatFactText}"
-                    Style="{StaticResource SubHeadline}"
-                    SemanticProperties.HeadingLevel="Level6"/>
-            </VerticalStackLayout>
-        
+             <Label
+                 Text="{Binding CatFactText}"
+                 Style="{StaticResource SubHeadline}"
+                 SemanticProperties.HeadingLevel="Level6"/>
+         </VerticalStackLayout>
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}"
+                           IsVisible="{Binding IsBusy}"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+
         <VerticalStackLayout
             Grid.Row="1" 
             HorizontalOptions="Center"

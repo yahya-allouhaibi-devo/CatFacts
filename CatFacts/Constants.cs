@@ -1,4 +1,4 @@
-﻿namespace CatFacts.Services;
+﻿namespace CatFacts;
 
 public static class Constants
 {
